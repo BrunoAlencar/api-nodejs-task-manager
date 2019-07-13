@@ -4,12 +4,24 @@ Nodejs API for my new system called Task Manager
 
 ## How to install
 
-```terminal
+```
 yarn
 ```
 
-### Or
+##### Or
 
-```terminal
+```
 npm i
+```
+
+## How to start
+
+```
+yarn dev
+```
+
+##### Or
+
+```
+npm run dev
 ```

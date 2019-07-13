@@ -5,6 +5,11 @@
   "repository": "https://github.com/BrunoAlencar/api-nodejs-task-manager.git",
   "author": "João Bruno Mélo de Alencar <joaobrunoalencar@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "use-linter": "eslint --fix src --ext .js"
+  },
   "dependencies": {
     "bcrypt": "^3.0.6",
     "dotenv": "^8.0.0",
