@@ -29,7 +29,7 @@ npm run dev
 
 
 ## To Do:
-[User migration](src/app/models/User.js)
+[User model](src/app/models/User.js)
 #### User
 - [x] Store user
 - [ ] Session login
