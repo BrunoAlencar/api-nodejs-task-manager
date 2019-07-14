@@ -25,3 +25,10 @@ yarn dev
 ```
 npm run dev
 ```
+
+## To Do:
+
+Markup : _ Bullet list
+_ Nested bullet
+_ Sub-nested bullet etc
+_ Bullet list item 2
