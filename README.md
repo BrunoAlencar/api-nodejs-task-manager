@@ -34,6 +34,12 @@ npm run dev
 - [x] Store user
 - [ ] Session login
 - [ ] Recover pass
+
+#### Avatar
+- [ ] Store file
+- [ ] Get file
+- [ ] Update file
+
 #### Goal
 - [ ] Create goal
 - [ ] List goal
