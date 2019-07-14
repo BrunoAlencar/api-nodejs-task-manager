@@ -28,7 +28,4 @@ npm run dev
 
 ## To Do:
 
-Markup : _ Bullet list
-_ Nested bullet
-_ Sub-nested bullet etc
-_ Bullet list item 2
+`Markup : * Bullet list * Nested bullet * Sub-nested bullet etc * Bullet list item 2`
