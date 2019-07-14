@@ -29,6 +29,25 @@ npm run dev
 
 
 ## To Do:
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
+#### User
+- [x] Store user
+- [ ] Session login
+- [ ] Recover pass
+#### Goal
+- [ ] Create goal
+- [ ] List goal
+- [ ] Update goal
+#### Type Goal/Subgoal
+- [ ] Create type
+- [ ] List type by goal
+- [ ] Update type
+
+#### Subgoal
+- [ ] Create subGoal
+- [ ] Update subGoal
+- [ ] List subGoal
+
+#### Reached goal
+- [ ] Create reachedGoal
+- [ ] Update reachedGoal
+- [ ] List reachedGoal by subGoal
