@@ -29,6 +29,6 @@ npm run dev
 
 
 ## To Do:
-
-Markup : - [ ] An uncompleted task
-          - [x] A completed task
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
