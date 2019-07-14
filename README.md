@@ -31,7 +31,7 @@ npm run dev
 ## To Do:
 #### User [(User model)](src/app/models/User.js)
 - [x] Store user
-- [ ] Session login
+- [x] Session login
 - [ ] Recover pass
 
 #### Avatar
