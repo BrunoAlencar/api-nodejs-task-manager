@@ -40,11 +40,11 @@ npm run dev
 - [ ] Update file
 
 #### Goal
-- [ ] Create goal
+- [x] Create goal
 - [ ] List goal
 - [ ] Update goal
 #### Type Goal/Subgoal
-- [ ] Create type
+- [x] Create type
 - [ ] List type by goal
 - [ ] Update type
 

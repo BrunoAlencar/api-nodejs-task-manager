@@ -1,38 +1,53 @@
 import * as Yup from 'yup';
 
+import User from '../models/User';
 import Goal from '../models/Goal';
+import GoalType from '../models/GoalType';
 
 class GoalController {
   async store(req, res) {
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
-      email: Yup.string()
-        .email()
-        .required(),
-      password: Yup.string()
-        .required()
-        .min(6),
+      title: Yup.string().required(),
+      description: Yup.string(),
+      deadline: Yup.date().required(),
+      value: Yup.number().required(),
+      type: Yup.string().required(),
+      color: Yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const userExists = await User.findOne({
-      where: { email: req.body.email },
-    });
+    // const userExists = await User.findOne({
+    //   where: { id: req.body.user_id },
+    // });
 
-    if (userExists) {
-      return res.status(400).json({ error: 'User alread existis' });
-    }
+    // if (!userExists) {
+    //   return res.status(400).json({ error: 'User not existis' });
+    // }
+    const { title, description, deadline, color, type, value } = req.body;
+    let goal = {
+      user_id: req.userId,
+      title,
+      description,
+      deadline,
+      color,
+    };
+    goal = await Goal.create(goal);
 
-    const { id, name, email, role } = await User.create(req.body);
+    let goalType = {
+      user_id: req.userId,
+      goal_id: goal.id,
+      type,
+      value,
+    };
+
+    goalType = await GoalType.create(goalType);
 
     return res.json({
-      id,
-      name,
-      email,
-      role,
+      goal,
+      goalType,
     });
   }
 

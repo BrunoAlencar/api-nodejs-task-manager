@@ -1,29 +1,32 @@
-'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('goal_types', {
+    return queryInterface.createTable('subgoals', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      type: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      value: {
-        type: Sequelize.INTEGER,
+      description: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      week_days: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      is_active: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
         allowNull: false,
       },
       goal_id: {
         type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      subgoal_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
+        allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -41,6 +44,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('goal_types');
+    return queryInterface.dropTable('subgoals');
   },
 };
