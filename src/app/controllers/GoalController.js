@@ -5,6 +5,15 @@ import Goal from '../models/Goal';
 import GoalType from '../models/GoalType';
 
 class GoalController {
+  async index(req, res) {
+    const goals = await Goal.findAll({
+      where: { user_id: req.userId },
+      order: [['createdAt', 'desc']],
+    });
+
+    return res.json(goals);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),
