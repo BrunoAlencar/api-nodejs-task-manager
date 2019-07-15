@@ -43,6 +43,62 @@ class SubgoaloalController {
       goalType,
     });
   }
+  async update(req, res) {
+    const schema = Yup.object().shape({
+      title: Yup.string(),
+      description: Yup.string(),
+      week_days: Yup.string(),
+      value: Yup.number(),
+      type: Yup.string(),
+      is_active: Yup.boolean(),
+      subgoal_id: Yup.number().required(),
+      goal_type_id: Yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails' });
+    }
+
+    const {
+      title,
+      description,
+      week_days,
+      type,
+      value,
+      is_active,
+      goal_type_id,
+      subgoal_id,
+    } = req.body;
+
+    let subgoal = {
+      title,
+      description,
+      week_days,
+      is_active,
+    };
+    const subgoalExists = await Subgoal.findByPk(subgoal_id);
+    if (!subgoalExists) {
+      return res.status(400).json({ error: 'Subgoal does not exists' });
+    }
+    subgoal = await subgoalExists.update(subgoal);
+
+    let goalType = {
+      user_id: req.userId,
+      subgoal_id: subgoal.id,
+      type,
+      value,
+    };
+    const goalTypeExists = await GoalType.findByPk(goal_type_id);
+    if (!goalTypeExists) {
+      return res.status(400).json({ error: 'Goal type does not exists' });
+    }
+    goalType = await goalTypeExists.update(goalType);
+
+    return res.json({
+      subgoal,
+      goalType,
+    });
+  }
 }
 
 export default new SubgoaloalController();

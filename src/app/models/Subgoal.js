@@ -16,6 +16,13 @@ class Subgoal extends Model {
       }
     );
   }
+
+  static associate(models) {
+    this.hasOne(models.GoalType, {
+      foreignKey: 'subgoal_id',
+      as: 'goal_type',
+    });
+  }
 }
 
 export default Subgoal;
