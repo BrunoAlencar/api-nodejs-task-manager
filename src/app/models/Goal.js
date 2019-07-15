@@ -17,6 +17,12 @@ class Goal extends Model {
       }
     );
   }
+  static associate(models) {
+    this.hasOne(models.GoalType, {
+      foreignKey: 'goal_id',
+      as: 'goal_type',
+    });
+  }
 }
 
 export default Goal;

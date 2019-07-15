@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 import User from '../models/User';
-import Subgoal from '../models/SubGoal';
+import Subgoal from '../models/Subgoal';
 import GoalType from '../models/GoalType';
 
 class SubgoaloalController {

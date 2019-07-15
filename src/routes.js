@@ -16,6 +16,7 @@ routes.use(authMiddleware);
 
 routes.post('/goals', GoalController.store);
 routes.get('/goals', GoalController.index);
+routes.put('/goals', GoalController.update);
 
 routes.post('/subgoals', SubgoalController.store);
 

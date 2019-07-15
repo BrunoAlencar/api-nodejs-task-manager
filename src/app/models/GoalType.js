@@ -16,6 +16,13 @@ class GoalType extends Model {
       }
     );
   }
+  static associate(models) {
+    this.belongsTo(models.Goal, { foreignKey: 'goal_id', as: 'goal' });
+    this.belongsTo(models.Subgoal, {
+      foreignKey: 'subgoal_id',
+      as: 'subgoal',
+    });
+  }
 }
 
 export default GoalType;

@@ -7,8 +7,15 @@ import GoalType from '../models/GoalType';
 class GoalController {
   async index(req, res) {
     const goals = await Goal.findAll({
-      where: { user_id: req.userId },
+      where: { user_id: req.userId, completed: false },
       order: [['createdAt', 'desc']],
+      include: [
+        {
+          model: GoalType,
+          as: 'goal_type',
+          attributes: ['id', 'type', 'value'],
+        },
+      ],
     });
 
     return res.json(goals);
@@ -55,52 +62,65 @@ class GoalController {
 
   async update(req, res) {
     const schema = Yup.object().shape({
-      name: Yup.string(),
-      email: Yup.string().email(),
-      oldPassword: Yup.string().min(6),
-      password: Yup.string()
-        .min(6)
-        .when('oldPassword', (oldPassword, field) =>
-          oldPassword ? field.required() : field
-        ),
-      confirmPassword: Yup.string()
-        .min(6)
-        .when('password', (password, field) =>
-          password ? field.required().oneOf([Yup.ref('password')]) : field
-        ),
+      title: Yup.string(),
+      description: Yup.string(),
+      deadline: Yup.date(),
+      value: Yup.number(),
+      type: Yup.string(),
+      color: Yup.string(),
+      completed: Yup.boolean(),
+      user_experience: Yup.string(),
+      goal_id: Yup.number().required(),
+      goal_type_id: Yup.number().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const { email, oldPassword } = req.body;
+    const {
+      title,
+      description,
+      deadline,
+      color,
+      type,
+      value,
+      completed,
+      user_experience,
+      goal_id,
+      goal_type_id,
+    } = req.body;
 
-    const user = await User.findByPk(req.userId);
-
-    if (email && email !== user.email) {
-      const userExists = await User.findOne({
-        where: {
-          email,
-        },
-      });
-
-      if (userExists) {
-        return res.status(400).json({ error: 'user already exists' });
-      }
+    let goal = {
+      user_id: req.userId,
+      title,
+      description,
+      deadline,
+      color,
+      completed,
+      user_experience,
+    };
+    const goalExists = await Goal.findByPk(goal_id);
+    if (!goalExists) {
+      return res.status(400).json({ error: 'Goal does not exists' });
     }
+    goal = await goalExists.update(goal);
 
-    if (oldPassword && !(await user.checkPassword(oldPassword))) {
-      return res.status(401).json({ error: 'Password does not match' });
+    let goalType = {
+      user_id: req.userId,
+      goal_id: goal.id,
+      type,
+      value,
+    };
+    const goalTypeExists = await GoalType.findByPk(goal_type_id);
+    if (!goalTypeExists) {
+      return res.status(400).json({ error: 'Goal type does not exists' });
     }
-
-    const { id, name, role } = await user.update(req.body);
+    goalType = await goalTypeExists.update(goalType);
 
     return res.json({
-      id,
-      name,
-      email,
-      role,
+      goal,
+      goalType,
     });
   }
 }
