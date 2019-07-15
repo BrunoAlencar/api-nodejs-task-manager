@@ -4,9 +4,10 @@ import databaseConfig from '../config/database';
 
 import User from '../app/models/User';
 import Goal from '../app/models/Goal';
+import SubGoal from '../app/models/SubGoal';
 import GoalType from '../app/models/GoalType';
 
-const models = [User, Goal, GoalType];
+const models = [User, Goal, GoalType, SubGoal];
 
 class Database {
   constructor() {

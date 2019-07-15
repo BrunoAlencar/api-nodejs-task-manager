@@ -49,7 +49,7 @@ npm run dev
 - [ ] Update type
 
 #### Subgoal
-- [ ] Create subGoal
+- [x] Create subGoal
 - [ ] Update subGoal
 - [ ] List subGoal
 

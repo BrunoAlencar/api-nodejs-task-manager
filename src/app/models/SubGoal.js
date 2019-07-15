@@ -1,16 +1,15 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Goal extends Model {
+class Subgoal extends Model {
   static init(sequelize) {
     super.init(
       {
         title: Sequelize.STRING,
         description: Sequelize.STRING,
-        deadline: Sequelize.DATE,
+        week_days: Sequelize.STRING,
+        is_active: Sequelize.BOOLEAN,
+        goal_id: Sequelize.INTEGER,
         user_id: Sequelize.INTEGER,
-        color: Sequelize.STRING,
-        completed: Sequelize.BOOLEAN,
-        user_experience: Sequelize.STRING,
       },
       {
         sequelize,
@@ -19,4 +18,4 @@ class Goal extends Model {
   }
 }
 
-export default Goal;
+export default Subgoal;

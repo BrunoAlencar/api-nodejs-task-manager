@@ -19,13 +19,6 @@ class GoalController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    // const userExists = await User.findOne({
-    //   where: { id: req.body.user_id },
-    // });
-
-    // if (!userExists) {
-    //   return res.status(400).json({ error: 'User not existis' });
-    // }
     const { title, description, deadline, color, type, value } = req.body;
     let goal = {
       user_id: req.userId,
