@@ -6,8 +6,9 @@ import User from '../app/models/User';
 import Goal from '../app/models/Goal';
 import Subgoal from '../app/models/Subgoal';
 import GoalType from '../app/models/GoalType';
+import GoalReached from '../app/models/GoalReached';
 
-const models = [User, Goal, GoalType, Subgoal];
+const models = [User, Goal, GoalType, Subgoal, GoalReached];
 
 class Database {
   constructor() {

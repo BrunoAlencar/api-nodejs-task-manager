@@ -4,6 +4,7 @@ import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import GoalController from './app/controllers/GoalController';
 import SubgoalController from './app/controllers/SubgoalController';
+import GoalReachedController from './app/controllers/GoalReachedController';
 
 import authMiddleware from '../src/app/middlewares/auth';
 
@@ -21,5 +22,7 @@ routes.put('/goals', GoalController.update);
 routes.post('/subgoals', SubgoalController.store);
 routes.get('/subgoals/:idgoal', SubgoalController.index);
 routes.put('/subgoals', SubgoalController.update);
+
+routes.get('/goalreached', GoalReachedController.store);
 
 export default routes;
