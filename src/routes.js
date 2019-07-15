@@ -19,6 +19,7 @@ routes.get('/goals', GoalController.index);
 routes.put('/goals', GoalController.update);
 
 routes.post('/subgoals', SubgoalController.store);
+routes.get('/subgoals/:idgoal', SubgoalController.index);
 routes.put('/subgoals', SubgoalController.update);
 
 export default routes;

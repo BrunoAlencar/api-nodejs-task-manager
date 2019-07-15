@@ -46,12 +46,12 @@ npm run dev
 #### Type Goal/Subgoal
 - [x] Create type
 - [ ] List type by goal
-- [ ] Update type
+- [x] Update type
 
 #### Subgoal
 - [x] Create subGoal
-- [ ] Update subGoal
-- [ ] List subGoal
+- [x] Update subGoal
+- [x] List subGoal
 
 #### Reached goal
 - [ ] Create reachedGoal

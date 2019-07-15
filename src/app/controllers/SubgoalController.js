@@ -5,6 +5,22 @@ import Subgoal from '../models/Subgoal';
 import GoalType from '../models/GoalType';
 
 class SubgoaloalController {
+  async index(req, res) {
+    const subgoals = await Subgoal.findAll({
+      where: { user_id: req.userId, goal_id: req.params.idgoal },
+      order: [['createdAt', 'desc']],
+      include: [
+        {
+          model: GoalType,
+          as: 'goal_type',
+          attributes: ['id', 'type', 'value'],
+        },
+      ],
+    });
+
+    return res.json(subgoals);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),
