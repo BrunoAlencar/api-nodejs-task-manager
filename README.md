@@ -54,6 +54,6 @@ npm run dev
 - [x] List subGoal
 
 #### Reached goal
-- [ ] Create reachedGoal
+- [x] Create reachedGoal
 - [ ] Update reachedGoal
-- [ ] List reachedGoal by subGoal
+- [x] List reachedGoal by subGoal

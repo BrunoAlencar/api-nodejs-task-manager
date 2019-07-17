@@ -14,11 +14,8 @@ class GoalReachedController {
         },
       },
     });
-    // console.log(new Date(goalReachedExists.createdAt));
-    // return res.json(goalReachedExists);
 
     if (goalReachedExists) {
-      console.log('lista');
       const goals_reached = await GoalReached.findAll({
         where: { user_id: req.userId },
       });
@@ -45,14 +42,12 @@ class GoalReachedController {
         };
       })
     );
-    console.log('cria');
     res.json(goalReached);
   }
 
   async index(req, res) {
-    console.log('lista');
     const goals_reached = await GoalReached.findAll({
-      where: { user_id: req.userId },
+      where: { user_id: req.userId, subgoal_id: req.params.subgoal_id },
     });
     return res.json(goals_reached);
   }

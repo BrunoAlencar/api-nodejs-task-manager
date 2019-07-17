@@ -24,5 +24,6 @@ routes.get('/subgoals/:idgoal', SubgoalController.index);
 routes.put('/subgoals', SubgoalController.update);
 
 routes.get('/goalreached', GoalReachedController.store);
+routes.get('/goalreached/:subgoal_id', GoalReachedController.index);
 
 export default routes;
