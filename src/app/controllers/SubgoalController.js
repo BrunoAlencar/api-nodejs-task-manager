@@ -115,6 +115,15 @@ class SubgoaloalController {
       goalType,
     });
   }
+
+  getTypes(req, res){
+    const types = [
+      'hours_per_day',
+      'pages_per_day',
+      'money_per_month'
+    ]
+    res.json(types)
+  }
 }
 
 export default new SubgoaloalController();

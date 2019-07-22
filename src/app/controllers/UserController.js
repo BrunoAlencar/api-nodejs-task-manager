@@ -2,6 +2,8 @@ import * as Yup from 'yup';
 
 import User from '../models/User';
 
+import Mail from '../../lib/Mail';
+
 class UserController {
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -85,6 +87,35 @@ class UserController {
       email,
       role,
     });
+  }
+
+  async recover(req, res) {
+    const { email } = req.body;
+
+    const user = await User.findOne({
+      where: {
+        email
+      }
+    })
+
+    if(!user){
+      return res.status(404).json({error: 'Email not found'})
+    }
+
+    const newPassword = Math.random().toString(36).substring(6);
+
+    await user.update({password: newPassword})
+
+    Mail.sendMail({
+      to: `${user.name} <${email}>`,
+      subject: 'Recuperação de senha',
+      template: 'recover',
+      context: {
+        user: user.name,
+        newPassword
+      },
+    });
+    res.json({message: 'Email enviado!'})
   }
 }
 

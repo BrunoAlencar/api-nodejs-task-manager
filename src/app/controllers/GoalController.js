@@ -123,6 +123,15 @@ class GoalController {
       goalType,
     });
   }
+
+  getTypes(req, res){
+    const types = [
+      'total_hours',
+      'total_pages',
+      'total_money'
+    ]
+    res.json(types)
+  }
 }
 
 export default new GoalController();

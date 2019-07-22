@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import multer from 'multer';
+import multerConfig from './config/multer';
 
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
@@ -9,21 +11,30 @@ import GoalReachedController from './app/controllers/GoalReachedController';
 import authMiddleware from '../src/app/middlewares/auth';
 
 const routes = new Router();
+const upload = new multer(multerConfig);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
+routes.post('/recover', UserController.recover);
 
 routes.use(authMiddleware);
+
+routes.put('/users', UserController.update);
 
 routes.post('/goals', GoalController.store);
 routes.get('/goals', GoalController.index);
 routes.put('/goals', GoalController.update);
+routes.get('/goals/types', GoalController.getTypes);
 
 routes.post('/subgoals', SubgoalController.store);
 routes.get('/subgoals/:idgoal', SubgoalController.index);
 routes.put('/subgoals', SubgoalController.update);
+routes.get('/subgoals/types', SubgoalController.getTypes);
 
 routes.get('/goalreached', GoalReachedController.store);
 routes.get('/goalreached/:subgoal_id', GoalReachedController.index);
+routes.put('/goalreached', GoalReachedController.update);
+
+routes.post('/avatars', upload.single('avatar'), AvatarController.store)
 
 export default routes;

@@ -51,6 +51,20 @@ class GoalReachedController {
     });
     return res.json(goals_reached);
   }
+
+  async update(req, res) {
+    const { value, is_done, note, id } = req.body;
+
+    const goalReachedExists = await GoalReached.findByPk(id);
+    if(!goalReachedExists){
+      return res.status(400).json({error: 'Goal Reached does not exists'})
+    }
+
+    await goalReachedExists.update({value, is_done, note});
+
+    return res.json({message: 'Goal Reached is updated!'})
+  }
+
 }
 
 export default new GoalReachedController();
