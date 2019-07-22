@@ -7,6 +7,7 @@ import UserController from './app/controllers/UserController';
 import GoalController from './app/controllers/GoalController';
 import SubgoalController from './app/controllers/SubgoalController';
 import GoalReachedController from './app/controllers/GoalReachedController';
+import AvatarController from './app/controllers/AvatarController';
 
 import authMiddleware from '../src/app/middlewares/auth';
 
@@ -27,14 +28,14 @@ routes.put('/goals', GoalController.update);
 routes.get('/goals/types', GoalController.getTypes);
 
 routes.post('/subgoals', SubgoalController.store);
-routes.get('/subgoals/:idgoal', SubgoalController.index);
-routes.put('/subgoals', SubgoalController.update);
 routes.get('/subgoals/types', SubgoalController.getTypes);
+routes.put('/subgoals', SubgoalController.update);
+routes.get('/subgoals/:idgoal', SubgoalController.index);
 
 routes.get('/goalreached', GoalReachedController.store);
-routes.get('/goalreached/:subgoal_id', GoalReachedController.index);
 routes.put('/goalreached', GoalReachedController.update);
+routes.get('/goalreached/:subgoal_id', GoalReachedController.index);
 
-routes.post('/avatars', upload.single('avatar'), AvatarController.store)
+routes.post('/avatars', upload.single('avatar'), AvatarController.store);
 
 export default routes;

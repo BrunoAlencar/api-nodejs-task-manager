@@ -7,23 +7,20 @@ class AvatarController {
 
     const avatarExists = await Avatar.findOne({
       where: {
-        user_id: req.userId
-      }
+        user_id: req.userId,
+      },
     });
-    let avatar = null;
-    if(avatarExists){
-      avatar = await avatarExists.update({name, path})
-    }else {
-      avatar = await Avatar.create({
+    if (avatarExists) {
+      await avatarExists.update({ name, path });
+      return res.json({ message: 'Avatar updated!' });
+    } else {
+      await Avatar.create({
         name,
         path,
-        user_id: req.userId
+        user_id: req.userId,
       });
+      return res.json({ message: 'Avatar created!' });
     }
-
-    return res.json({
-      avatar,
-    });
   }
 }
 

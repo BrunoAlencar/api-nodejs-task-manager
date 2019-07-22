@@ -116,13 +116,9 @@ class SubgoaloalController {
     });
   }
 
-  getTypes(req, res){
-    const types = [
-      'hours_per_day',
-      'pages_per_day',
-      'money_per_month'
-    ]
-    res.json(types)
+  getTypes(req, res) {
+    const types = ['hours_per_day', 'pages_per_day', 'money_per_month'];
+    return res.json(types);
   }
 }
 

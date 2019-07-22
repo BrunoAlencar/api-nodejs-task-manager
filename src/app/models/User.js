@@ -23,6 +23,13 @@ class User extends Model {
     });
   }
 
+  static associate(models) {
+    this.hasOne(models.Avatar, {
+      foreignKey: 'user_id',
+      as: 'avatar',
+    });
+  }
+
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }

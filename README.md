@@ -32,12 +32,12 @@ npm run dev
 #### User [(User model)](src/app/models/User.js)
 - [x] Store user
 - [x] Session login
-- [ ] Recover pass
+- [x] Recover pass by Email
 
 #### Avatar
-- [ ] Store file
-- [ ] Get file
-- [ ] Update file
+- [x] Store file
+- [x] Get file
+- [x] Update file
 
 #### Goal
 - [x] Create goal
@@ -45,7 +45,7 @@ npm run dev
 - [x] Update goal
 #### Type Goal/Subgoal
 - [x] Create type
-- [ ] List type by goal
+- [x] List type by goal
 - [x] Update type
 
 #### Subgoal
@@ -55,5 +55,5 @@ npm run dev
 
 #### Reached goal
 - [x] Create reachedGoal
-- [ ] Update reachedGoal
+- [x] Update reachedGoal
 - [x] List reachedGoal by subGoal

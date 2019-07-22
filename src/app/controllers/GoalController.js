@@ -124,13 +124,9 @@ class GoalController {
     });
   }
 
-  getTypes(req, res){
-    const types = [
-      'total_hours',
-      'total_pages',
-      'total_money'
-    ]
-    res.json(types)
+  getTypes(req, res) {
+    const types = ['total_hours', 'total_pages', 'total_money'];
+    return res.json(types);
   }
 }
 
