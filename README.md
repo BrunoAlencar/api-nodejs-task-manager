@@ -59,7 +59,7 @@ npm run dev
 - [x] List reachedGoal by subGoal
 
 ## To Do API Docs:
-#### User [(User model)](src/app/models/User.js)
+#### User
 - [ ] Store user
 - [ ] Session login
 - [ ] Recover pass by Email
