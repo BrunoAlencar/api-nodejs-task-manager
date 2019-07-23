@@ -1,0 +1,14 @@
+{
+  "name": "Task Manager API - Node.JS",
+  "version": "1.0.0",
+  "description": "Nodejs API for my new system called Task Manager",
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2019-07-23T09:44:20.481Z",
+    "url": "http://apidocjs.com",
+    "version": "0.17.7"
+  }
+}

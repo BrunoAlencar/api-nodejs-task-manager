@@ -57,3 +57,33 @@ npm run dev
 - [x] Create reachedGoal
 - [x] Update reachedGoal
 - [x] List reachedGoal by subGoal
+
+## To Do API Docs:
+#### User [(User model)](src/app/models/User.js)
+- [ ] Store user
+- [ ] Session login
+- [ ] Recover pass by Email
+
+#### Avatar
+- [ ] Store file
+- [ ] Get file
+- [ ] Update file
+
+#### Goal
+- [ ] Create goal
+- [ ] List goal
+- [ ] Update goal
+#### Type Goal/Subgoal
+- [ ] Create type
+- [ ] List type by goal
+- [ ] Update type
+
+#### Subgoal
+- [ ] Create subGoal
+- [ ] Update subGoal
+- [ ] List subGoal
+
+#### Reached goal
+- [ ] Create reachedGoal
+- [ ] Update reachedGoal
+- [ ] List reachedGoal by subGoal

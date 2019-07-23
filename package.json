@@ -11,6 +11,7 @@
     "use-linter": "eslint --fix src --ext .js"
   },
   "dependencies": {
+    "apidoc": "^0.17.7",
     "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
     "date-fns": "^1.30.1",
